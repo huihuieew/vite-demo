@@ -8,6 +8,33 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": resolve("src"),
+      comps: resolve("src/components"),
+      api: resolve("src/api"),
+    },
+  },
+  css: {
+    // 预处理器配置项
+    preprocessorOptions: {
+      less: {
+        math: "always",
+        globalVars: {
+          blue: "#1CC0FF",
+        },
+      },
+    },
+  },
+  server: {
+    // 配置前端服务器地址和端口
+    host: "127.0.0.1",
+    port: 3088,
+    strictPort: false,
+    open: false,
+    proxy: {
+      "/api": {
+        target: "",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
     },
   },
 });

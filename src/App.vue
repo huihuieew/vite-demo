@@ -13,7 +13,7 @@ const url_env = import.meta.env.VITE_APP_WEB_URL;
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <p>{{ url_env }}</p>
+  <p class="wrap">{{ url_env }}</p>
   <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
@@ -29,5 +29,12 @@ const url_env = import.meta.env.VITE_APP_WEB_URL;
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+</style>
+<style scoped lang="less">
+.wrap {
+  line-height: 1080 / 108vh;
+  height: 1080 / 108vh;
+  background: @blue;
 }
 </style>
