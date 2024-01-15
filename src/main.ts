@@ -3,5 +3,11 @@ import "./style.css";
 import App from "./App.vue";
 import router from "@/router/index";
 import pinia from "./store/main";
+import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
-createApp(App).use(pinia).use(router).mount("#app");
+const app = createApp(App);
+Object.keys(ElementPlusIconsVue).forEach(key => {
+    app.component(key, ElementPlusIconsVue[key as keyof typeof ElementPlusIconsVue]);
+})
+
+app.use(pinia).use(router).mount("#app");
